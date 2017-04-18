@@ -13,3 +13,8 @@ implicit val OptionFunctor = new Functor[Option] {
     case Some(a) => Some(f(a))
     case None    => None
 }
+
+// A ListFunctor
+implicit val ListFunctor = new Functor[List] {
+  def map[A, B](fa: List[A])(f: A => B): List[B] = fa map f 
+}
