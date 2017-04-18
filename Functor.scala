@@ -32,6 +32,6 @@ object Functor {
   
   // Hmmm... a Function Functor... why not!
   implicit val Function1Functor[R]: Functor[({type l[a]=(R) => a})#l] = new Functor[({type l[a]=(R) => a})#l] {
-    def fmap[A, B](r: R => A, f: A => B) = r andThen f
+    def map[A, B](r: R => A, f: A => B) = r andThen f
   }
 }
