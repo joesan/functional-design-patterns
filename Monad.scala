@@ -3,7 +3,7 @@
  *
  *
  */
- trait Monad[A] {
-   def map[B](f: A => B): F[B]
-   def flatMap[B](f: A => Monad[B]): Monad[B]
- }
+trait Monad[M[_]] {
+  def identity[A](a: A): M[A]
+  def flatMap[A, B](a: M[A])(fn: A => M[B]): M[B]
+}
